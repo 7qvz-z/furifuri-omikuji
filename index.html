@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- 文字化けしないように文字コードを指定 -->
+  <meta charset="UTF-8">
+  <!-- スマホでもちょうどいい大きさで表示するための設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日のおみくじ</title>
+  <!-- 見た目（デザイン）はstyle.cssに書いています -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>⛩️ 今日のおみくじ ⛩️</h1>
+    <p class="lead">ボタンを押して、今日の運勢をうらなおう！</p>
+
+    <!-- ===== おみくじの箱 ===== -->
+    <!-- JavaScriptで「shake」クラスをつけると箱がゆれます -->
+    <div id="box" class="box">
+      <span class="box-text">御神籤</span>
+    </div>
+
+    <button id="drawButton" class="button">おみくじを引く</button>
+
+    <!-- ===== 結果を表示する場所 ===== -->
+    <!-- 最初は「hidden」クラスで隠しておき、結果が出たら表示します -->
+    <section id="result" class="result hidden">
+      <p id="fortune" class="fortune"></p>
+      <p id="message" class="message"></p>
+    </section>
+
+    <hr>
+
+    <!-- ===== おまけ機能：ラッキーカラー ===== -->
+    <section class="lucky">
+      <h2>🍀 今日のラッキーカラー＆アイテム</h2>
+      <p>誕生日を入れると、今日のラッキーカラーとラッキーアイテムがわかるよ。</p>
+
+      <!-- 誕生日の「月」と「日」を入力する欄 -->
+      <div class="birthday">
+        <input id="month" type="number" min="1" max="12" placeholder="月">
+        <span>月</span>
+        <input id="day" type="number" min="1" max="31" placeholder="日">
+        <span>日</span>
+      </div>
+
+      <button id="colorButton" class="button small">ラッキーカラーとアイテムを見る</button>
+
+      <!-- ラッキーカラーとラッキーアイテムの結果を表示する場所 -->
+      <div id="colorResult" class="color-result hidden">
+        <div id="colorSample" class="color-sample"></div>
+        <p id="colorName" class="color-name"></p>
+        <!-- ラッキーアイテムを表示する場所 -->
+        <p id="itemName" class="item-name"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 動き（プログラム）はscript.jsに書いています -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+/* ===== ページ全体 ===== */
+body {
+  margin: 0;
+  font-family: "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+  /* 背景を赤からオレンジへのグラデーションにして神社っぽくする */
+  background: linear-gradient(#b71c1c, #ff8a65);
+  color: #333;
+  min-height: 100vh;
+  /* スマホで見たとき、画面のはしにくっつかないように左右にすき間をあける */
+  padding: 1px 16px;
+}
+
+/* 中央の白いカード部分 */
+.container {
+  max-width: 480px;
+  margin: 32px auto;
+  padding: 24px 16px;
+  background: #fffaf0;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  color: #b71c1c;
+  font-size: 28px;
+  margin-top: 0;
+}
+
+/* ===== おみくじの箱 ===== */
+.box {
+  width: 120px;
+  height: 180px;
+  margin: 24px auto;
+  background: #8d6e63;
+  border: 6px solid #5d4037;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 箱に書いてある「御神籤」の文字（縦書き） */
+.box-text {
+  writing-mode: vertical-rl;
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 6px;
+}
+
+/* 箱をゆらすアニメーション。JavaScriptでこのクラスをつけます */
+.shake {
+  animation: shake 0.15s infinite;
+}
+
+/* 左右にかたむけて、ゆれているように見せる */
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-12deg); }
+  75%  { transform: rotate(12deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ===== ボタン ===== */
+.button {
+  background: #d32f2f;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 32px;
+  cursor: pointer;
+}
+
+/* マウスをのせたとき少し大きくする */
+.button:hover {
+  transform: scale(1.05);
+}
+
+/* 押せないとき（箱がゆれている間）は灰色にする */
+.button:disabled {
+  background: #aaa;
+  cursor: default;
+  transform: none;
+}
+
+.button.small {
+  font-size: 16px;
+  padding: 8px 20px;
+}
+
+/* ===== 結果 ===== */
+.result {
+  margin-top: 24px;
+  /* 結果がふわっと出てくるアニメーション */
+  animation: popup 0.5s ease-out;
+}
+
+@keyframes popup {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.fortune {
+  font-size: 56px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.message {
+  font-size: 18px;
+}
+
+/* 隠しておきたいものにつけるクラス */
+.hidden {
+  display: none;
+}
+
+hr {
+  margin: 32px 0;
+  border: none;
+  border-top: 2px dashed #d7ccc8;
+}
+
+/* ===== ラッキーカラー ===== */
+.lucky h2 {
+  /* 見出しが長いので、スマホで2行にならないよう少し小さめにする */
+  font-size: 18px;
+  color: #5d4037;
+}
+
+.birthday {
+  margin: 12px 0;
+}
+
+.birthday input {
+  width: 60px;
+  font-size: 18px;
+  padding: 4px;
+  text-align: center;
+}
+
+.color-result {
+  margin-top: 16px;
+  animation: popup 0.5s ease-out;
+}
+
+/* 色の見本を表示する丸 */
+.color-sample {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.color-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ラッキーアイテムの文字 */
+.item-name {
+  font-size: 20px;
+  background: #fff3e0;
+  border-radius: 12px;
+  padding: 8px;
+}
